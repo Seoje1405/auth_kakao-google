@@ -1,9 +1,10 @@
 import { auth, signOut } from "./auth";
 import SignInKakao from "../components/sign-in-kakao";
 import SignInGoogle from "../components/sign-in-google";
+import VoiceRecognition from "../components/voice-recognition"; // 컴포넌트 import
 
 export default async function Home() {
-  const session = await auth();
+  const session = await auth(); //
 
   if (!session) {
     return (
@@ -19,7 +20,7 @@ export default async function Home() {
   }
 
   return (
-    <div className="p-10">
+    <div className="p-10 flex flex-col items-center">
       <h1 className="text-xl font-bold">환영합니다, {session.user?.name}님!</h1>
 
       {session.user?.image && (
@@ -33,6 +34,8 @@ export default async function Home() {
       <div className="mt-4">
         <p className="text-gray-600">이메일: {session.user?.email}</p>
       </div>
+
+      <VoiceRecognition />
 
       <form
         action={async () => {

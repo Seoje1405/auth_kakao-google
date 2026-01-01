@@ -1,5 +1,4 @@
-// components/sign-in-google.tsx
-import { signIn } from "./../app/auth"; // auth.ts가 있는 경로에 맞춰주세요
+import { signIn } from "./../app/auth";
 
 export default function SignInGoogle() {
   return (
